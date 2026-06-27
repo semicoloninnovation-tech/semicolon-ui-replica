@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/* ─── Base ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #06090E;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Custom Cursor hover state ─────────── */
+.cursor-hover {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-color: rgba(0,85,255,0.7) !important;
+}
+
+/* ─── Marquee ───────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 24s linear infinite; }
+
+/* ─── Page enter ────────────────────────── */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: pageEnter 0.4s ease forwards; }
+
+/* ─── Scroll Reveal classes ─────────────── */
+
+/* Fade + blur up (default) */
+.reveal {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(32px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+    filter 0.75s cubic-bezier(0.22,1,0.36,1),
+    transform 0.75s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Slide from left */
+.reveal-left {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateX(-40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22,1,0.36,1),
+    filter 0.8s cubic-bezier(0.22,1,0.36,1),
+    transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal-left.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.reveal-right {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateX(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22,1,0.36,1),
+    filter 0.8s cubic-bezier(0.22,1,0.36,1),
+    transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal-right.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+/* Scale reveal for cards */
+.reveal-scale {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(24px) scale(0.97);
+  transition:
+    opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+    filter 0.7s cubic-bezier(0.22,1,0.36,1),
+    transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delays for card grids */
+.delay-100 { transition-delay: 0.10s !important; }
+.delay-200 { transition-delay: 0.20s !important; }
+.delay-300 { transition-delay: 0.30s !important; }
+.delay-400 { transition-delay: 0.40s !important; }
+.delay-500 { transition-delay: 0.50s !important; }
+.delay-600 { transition-delay: 0.60s !important; }
+
+/* ─── Card hover glow ───────────────────── */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 64px rgba(0,85,255,0.12);
+  border-color: rgba(0,85,255,0.25) !important;
+}
+
+/* ─── Universal top blue glow for cards ──── */
+.card-top-glow {
+  position: relative;
+  box-shadow: 0 -18px 40px -20px rgba(0,85,255,0.55), 0 0 0 1px rgba(255,255,255,0.05);
+}
+.card-top-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(58,124,255,0.9), transparent);
+  pointer-events: none;
+}
+
+/* ─── Unique animated card glows ────────── */
+@keyframes cardGlowDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+  50%      { transform: translate(14px, -10px) scale(1.15); opacity: 0.85; }
+}
+@keyframes cardGlowDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50%      { transform: translate(-16px, 12px) scale(1.2); opacity: 0.8; }
+}
+@keyframes cardGlowPulseSoft {
+  0%, 100% { opacity: 0.4; transform: scale(0.95); }
+  50%      { opacity: 0.75; transform: scale(1.1); }
+}
+@keyframes cardGlowSweep {
+  0%   { transform: translateX(-30%) scale(1); opacity: 0.45; }
+  50%  { transform: translateX(30%) scale(1.15); opacity: 0.8; }
+  100% { transform: translateX(-30%) scale(1); opacity: 0.45; }
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(28px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.glow-orb--drift1 { animation: cardGlowDrift1 6.5s ease-in-out infinite; }
+.glow-orb--drift2 { animation: cardGlowDrift2 7.5s ease-in-out infinite; }
+.glow-orb--pulse  { animation: cardGlowPulseSoft 4.5s ease-in-out infinite; }
+.glow-orb--sweep  { animation: cardGlowSweep 8s ease-in-out infinite; }
+
+/* ─── Section BG glow pulses ────────────── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 0.8; }
+}
+.glow-pulse { animation: glowPulse 5s ease-in-out infinite; }
+
+/* ─── Text gradient shimmer ─────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #90b0ff 0%, #ffffff 50%, #90b0ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── Hero title word blur stagger ─────── */
+@keyframes wordReveal {
+  from { opacity: 0; filter: blur(12px); transform: translateY(16px); }
+  to   { opacity: 1; filter: blur(0);    transform: translateY(0); }
+}
+.word-reveal span {
+  display: inline-block;
+  opacity: 0;
+  animation: wordReveal 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.word-reveal span:nth-child(1) { animation-delay: 0.1s; }
+.word-reveal span:nth-child(2) { animation-delay: 0.2s; }
+.word-reveal span:nth-child(3) { animation-delay: 0.3s; }
+.word-reveal span:nth-child(4) { animation-delay: 0.4s; }
+.word-reveal span:nth-child(5) { animation-delay: 0.5s; }
+.word-reveal span:nth-child(6) { animation-delay: 0.6s; }
