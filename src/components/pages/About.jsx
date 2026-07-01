@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import SEO from '../common/SEO'
 import laptop from "../../assets/media/home-man-laptop.png";
 import HeroGlow from "../common/HeroGlow";
 
 function About() {
   return (
     <>
+      <SEO
+        title='About Us'
+        canonical='/about'
+        description='Learn about Semicolon Innovations – our mission, team, and vision to deliver world-class IT solutions and industry-focused tech training from Kerala.'
+        keywords='about Semicolon Innovations, IT company Kerala, tech training center Kerala'
+      />
+
       <section className="pt-36 pb-24 relative overflow-hidden">
         <HeroGlow/>
 

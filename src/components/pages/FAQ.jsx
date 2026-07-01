@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from '../common/SEO'
 
 import FAQSection from "../home/FAQ";
 
@@ -10,6 +11,13 @@ const btnGhost = "inline-block px-7 py-3 rounded-xl border border-white/10 bg-wh
 function FAQPage() {
   return (
     <>
+      <SEO
+  title="FAQ | IT Services & Training Questions | Semicolon Innovations"
+  canonical="/faq"
+  description="Find answers to frequently asked questions about Semicolon Innovations' software development, AI solutions, web development, digital marketing, IT training programs, admissions, fees, and support."
+  keywords="FAQ Semicolon Innovations, IT training FAQ Kerala, software development FAQ, AI services Kerala, web development questions, digital marketing FAQ, internship FAQ, IT company Kerala"
+/>
+
       <section className="pt-36 pb-16 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 glow-pulse bg-[radial-gradient(ellipse_at_0%_0%,rgba(0,85,255,.14),transparent_45%)]" />
         <div className="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-10 items-start">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SEO from '../common/SEO'
 import { Link } from "react-router-dom";
 import { api } from "../../lib/api";
 import { useAuth } from "../../context/AuthContext";
@@ -179,6 +180,8 @@ function PortfolioAdmin() {
 
   return (
     <>
+      <SEO title='Admin Panel' noIndex={true} />
+
       <section className="pt-36 pb-10">
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex flex-wrap items-center justify-between gap-4">

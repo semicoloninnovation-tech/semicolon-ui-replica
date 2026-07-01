@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SEO from '../common/SEO'
 
 import womanLaptop from "../../assets/media/home-woman-laptop.png";
 
@@ -29,6 +30,12 @@ const btnGhost = "inline-block px-7 py-3 rounded-xl border border-white/10 bg-wh
 function Services() {
   return (
     <>
+      <SEO
+  title="IT Services | Software Development, AI & Web Solutions | Semicolon Innovations"
+  canonical="/services"
+  description="Explore Semicolon Innovations' professional IT services, including custom software development, web and mobile app development, AI solutions, UI/UX design, digital marketing, cloud services, and IT consulting in Kerala."
+  keywords="IT services Kerala, software development company Kerala, web development services, mobile app development Kerala, AI solutions Kerala, UI UX design Kerala, digital marketing services Kerala, cloud solutions Kerala, IT consulting Kerala, Semicolon Innovations"
+/>
       <section className="pt-36 pb-20 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 glow-pulse bg-[radial-gradient(ellipse_at_50%_0%,rgba(0,85,255,.14),transparent_45%)]" />
         <div className="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-10 items-start">

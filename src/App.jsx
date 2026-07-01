@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import AppRoutes from './routes'
@@ -16,13 +17,15 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <AuthProvider>
-      <CustomCursor />
-      <ScrollToTop />
-      <Header />
-      <AppRoutes />
-      <Footer />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <CustomCursor />
+        <ScrollToTop />
+        <Header />
+        <AppRoutes />
+        <Footer />
+      </AuthProvider>
+    </HelmetProvider>
   )
 }
 

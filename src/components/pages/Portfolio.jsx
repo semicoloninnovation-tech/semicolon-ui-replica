@@ -2,10 +2,17 @@ import PortfolioHero from "./PortfolioHero";
 import PortfolioGrid from "./PortfolioGrid";
 import FAQ from "../home/FAQ";
 import CTA from "../home/CTA";
+import SEO from '../common/SEO'
 
 function Portfolio() {
     return (
         <>
+            <SEO
+              title='Portfolio'
+              canonical='/portfolio'
+              description="Browse Semicolon Innovations' portfolio of delivered IT projects – from healthcare platforms to SaaS products, all built and launched for real clients."
+              keywords='IT portfolio Kerala, software projects Kerala, web app portfolio, Semicolon projects'
+            />
             <PortfolioHero />
             <PortfolioGrid />
             <FAQ eyebrow="How We Work?" />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from '../common/SEO'
 import { api } from "../../lib/api";
 
 const eyebrow = "inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 text-[#dce7ff] text-[0.84rem] tracking-[0.12em] uppercase";
@@ -53,6 +54,13 @@ function Enrollment() {
 
   return (
     <>
+     <SEO
+  title="Enroll in IT Training Programs | Semicolon Innovations Kerala"
+  canonical="/enrollment"
+  description="Enroll in Semicolon Innovations' industry-focused IT training programs in Kerala. Learn MERN Stack, Python, AI, Data Science, UI/UX, Digital Marketing, and more with expert mentors."
+  keywords="IT training Kerala, software training Kerala, enroll IT course, MERN Stack course Kerala, Python training Kerala, AI course Kerala, Data Science training, UI UX course Kerala, Digital Marketing course, Semicolon Innovations"
+/>
+
       <section className="pt-36 pb-16 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 glow-pulse bg-[radial-gradient(ellipse_at_50%_0%,rgba(0,85,255,.14),transparent_45%)]" />
         <div className="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-10 items-start">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from '../common/SEO'
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
@@ -32,50 +33,53 @@ function AdminLogin() {
   };
 
   return (
-    <section className="pt-36 pb-28 min-h-[70vh] flex items-center">
-      <div className="max-w-md mx-auto px-5 w-full">
-        <article className={surface + " p-8"}>
-          <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 text-[#dce7ff] text-[0.84rem] tracking-[0.12em] uppercase">
-            Admin Access
-          </p>
-          <h1 className="mt-4 text-2xl md:text-3xl font-semibold">Sign in to the admin panel</h1>
-          <p className="mt-2 text-[#a6aec3]">
-            Manage portfolio projects, contact leads, enrollment leads, and admin users.
-          </p>
+    <>
+      <SEO title='Admin Login' noIndex={true} />
+      <section className="pt-36 pb-28 min-h-[70vh] flex items-center">
+        <div className="max-w-md mx-auto px-5 w-full">
+          <article className={surface + " p-8"}>
+            <p className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 text-[#dce7ff] text-[0.84rem] tracking-[0.12em] uppercase">
+              Admin Access
+            </p>
+            <h1 className="mt-4 text-2xl md:text-3xl font-semibold">Sign in to the admin panel</h1>
+            <p className="mt-2 text-[#a6aec3]">
+              Manage portfolio projects, contact leads, enrollment leads, and admin users.
+            </p>
 
-          <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
-            <div className="grid gap-2">
-              <label className="text-white/90 text-sm">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className={inputClass}
-                placeholder="admin@semicolon.dev"
-              />
-            </div>
-            <div className="grid gap-2">
-              <label className="text-white/90 text-sm">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className={inputClass}
-                placeholder="••••••••"
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
+              <div className="grid gap-2">
+                <label className="text-white/90 text-sm">Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className={inputClass}
+                  placeholder="admin@semicolon.dev"
+                />
+              </div>
+              <div className="grid gap-2">
+                <label className="text-white/90 text-sm">Password</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className={inputClass}
+                  placeholder="••••••••"
+                />
+              </div>
 
-            {error && <p className="text-rose-300 text-sm">{error}</p>}
+              {error && <p className="text-rose-300 text-sm">{error}</p>}
 
-            <button type="submit" disabled={loading} className={btn}>
-              {loading ? "Signing in..." : "Sign In"}
-            </button>
-          </form>
-        </article>
-      </div>
-    </section>
+              <button type="submit" disabled={loading} className={btn}>
+                {loading ? "Signing in..." : "Sign In"}
+              </button>
+            </form>
+          </article>
+        </div>
+      </section>
+    </>
   );
 }
 

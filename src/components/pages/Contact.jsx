@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from '../common/SEO'
 import HeroGlow from "../common/HeroGlow";
 import { api } from "../../lib/api";
 
@@ -48,7 +49,15 @@ function ContactHero() {
   };
 
   return (
-    <section className="pt-36 pb-20 relative overflow-hidden" id="contact-form">
+    <>
+     <SEO
+        title='Contact Us'
+        canonical='/contact'
+        description='Get in touch with Semicolon Innovations. Discuss your IT project, training program, or any queries with our team based in Kerala.'
+        keywords='contact Semicolon Innovations, IT company contact Kerala, get in touch'
+      />
+    <section
+  className="pt-36 pb-20 relative overflow-hidden" id="contact-form">
       <HeroGlow/>
       <div className="pointer-events-none absolute inset-0 glow-pulse bg-[radial-gradient(ellipse_at_100%_0%,rgba(0,85,255,.14),transparent_45%)]" />
       <div className="max-w-7xl mx-auto px-5">
@@ -201,6 +210,7 @@ function ContactHero() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
